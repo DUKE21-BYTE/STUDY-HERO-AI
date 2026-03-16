@@ -1,9 +1,9 @@
 'use client';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 
-export default function EssayWriter() {
+function EssayWriterContent() {
   const searchParams = useSearchParams();
   const initialTopic = searchParams?.get('topic') || '';
   
@@ -166,5 +166,14 @@ export default function EssayWriter() {
         </div>
       )}
     </div>
+  );
+}
+
+
+export default function EssayWriter() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+      <EssayWriterContent />
+    </Suspense>
   );
 }

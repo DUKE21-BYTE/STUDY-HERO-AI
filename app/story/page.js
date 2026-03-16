@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 
@@ -11,7 +11,7 @@ const THEMES = [
   { id: 'mystery', name: 'Noir Mystery', icon: '🕵️‍♂️', desc: 'Gritty detective investigations' }
 ];
 
-export default function StoryLearning() {
+function StoryLearningContent() {
   const searchParams = useSearchParams();
   const initialNotes = searchParams?.get('notes') || '';
   
@@ -177,5 +177,14 @@ export default function StoryLearning() {
         </div>
       </div>
     </div>
+  );
+}
+
+
+export default function StoryLearning() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+      <StoryLearningContent />
+    </Suspense>
   );
 }

@@ -1,9 +1,9 @@
 'use client';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 
-export default function QuizGenerator() {
+function QuizGeneratorContent() {
   const searchParams = useSearchParams();
   const initialNotes = searchParams?.get('notes') || '';
   
@@ -153,5 +153,14 @@ export default function QuizGenerator() {
         </div>
       </div>
     </div>
+  );
+}
+
+
+export default function QuizGenerator() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+      <QuizGeneratorContent />
+    </Suspense>
   );
 }

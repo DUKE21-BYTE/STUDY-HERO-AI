@@ -1,9 +1,9 @@
 'use client';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 
-export default function ExamPredictor() {
+function ExamPredictorContent() {
   const searchParams = useSearchParams();
   const initialNotes = searchParams?.get('notes') || '';
   
@@ -210,5 +210,14 @@ export default function ExamPredictor() {
         </div>
       )}
     </div>
+  );
+}
+
+
+export default function ExamPredictor() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+      <ExamPredictorContent />
+    </Suspense>
   );
 }

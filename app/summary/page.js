@@ -1,10 +1,10 @@
 'use client';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import ReactMarkdown from 'react-markdown';
 
-export default function SummaryGenerator() {
+function SummaryGeneratorContent() {
   const searchParams = useSearchParams();
   const initialNotes = searchParams?.get('notes') || '';
   
@@ -144,5 +144,14 @@ export default function SummaryGenerator() {
         </div>
       </div>
     </div>
+  );
+}
+
+
+export default function SummaryGenerator() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+      <SummaryGeneratorContent />
+    </Suspense>
   );
 }

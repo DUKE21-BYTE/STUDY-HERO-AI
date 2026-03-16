@@ -1,10 +1,10 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, Suspense, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import { recordQuizScore, recordTopicStudied } from '@/lib/analytics';
 
-export default function MCQGenerator() {
+function MCQGeneratorContent() {
   const searchParams = useSearchParams();
   const initialNotes = searchParams?.get('notes') || '';
   
@@ -210,5 +210,14 @@ export default function MCQGenerator() {
         </div>
       )}
     </div>
+  );
+}
+
+
+export default function MCQGenerator() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+      <MCQGeneratorContent />
+    </Suspense>
   );
 }
