@@ -1,0 +1,96 @@
+
+C:\Users\Dell\study hero AI\app\analytics\page.js
+   4:8  warning  'Link' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+  12:5  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  10 |
+  11 |   useEffect(() => {
+> 12 |     setStats(getStats());
+     |     ^^^^^^^^ Avoid calling setState() directly within an effect
+  13 |     setHistory(getQuizScores().reverse()); // Newest first
+  14 |     setTopics(getTopicsStudied().sort((a,b) => b.count - a.count));
+  15 |   }, []);  react-hooks/set-state-in-effect
+
+C:\Users\Dell\study hero AI\app\dashboard\page.js
+  10:5   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+   8 |
+   9 |   useEffect(() => {
+> 10 |     setStats(getStats());
+     |     ^^^^^^^^ Avoid calling setState() directly within an effect
+  11 |   }, []);
+  12 |
+  13 |   return (  react-hooks/set-state-in-effect
+  17:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react/no-unescaped-entities
+  98:90  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react/no-unescaped-entities
+
+C:\Users\Dell\study hero AI\app\math\page.js
+  132:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Dell\study hero AI\app\mcq\page.js
+  2:30  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Dell\study hero AI\app\notes\page.js
+  4:10  warning  'Toaster' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Dell\study hero AI\app\settings\page.js
+  18:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  16 |     if (saved) {
+  17 |       try {
+> 18 |         setSettings(JSON.parse(saved));
+     |         ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  19 |       } catch (e) {
+  20 |         console.error('Failed to parse settings', e);
+  21 |       }  react-hooks/set-state-in-effect
+
+C:\Users\Dell\study hero AI\app\topic\page.js
+  5:8  warning  'ReactMarkdown' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Dell\study hero AI\components\TopNav.js
+  27:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  25 |
+  26 |   useEffect(() => {
+> 27 |     setStreak(getStreak());
+     |     ^^^^^^^^^ Avoid calling setState() directly within an effect
+  28 |   }, []);
+  29 |
+  30 |   return (  react-hooks/set-state-in-effect
+
+C:\Users\Dell\study hero AI\fix-suspense.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\Dell\study hero AI\lib\prompts.js
+  2:18  warning  'notes' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Dell\study hero AI\test-models.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+✖ 15 problems (10 errors, 5 warnings)
+

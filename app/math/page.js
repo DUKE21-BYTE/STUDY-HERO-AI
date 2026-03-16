@@ -151,8 +151,7 @@ export default function MathSolver() {
                 </div>
 
                 <h3 style={{ fontSize: '1.2rem', color: 'var(--text-primary)', marginBottom: '1rem' }}>Step-by-Step Approach</h3>
-                <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>{solution.approach}</p>
-
+                <p style={{ color: 'var(--text-secondary)' }}>Enter a problem below or click the camera icon to upload a photo of your math work. We&apos;ll explain it step-by-step.</p>
                 <div style={{ marginBottom: '2.5rem' }}>
                   {solution.steps.map((s, i) => (
                     <div key={i} className="math-step">

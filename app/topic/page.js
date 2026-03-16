@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { recordTopicStudied } from '@/lib/analytics';
-import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
 
 export default function TopicExplorer() {

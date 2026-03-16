@@ -1,5 +1,5 @@
 'use client';
-import { useState, Suspense, useEffect } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import { recordQuizScore, recordTopicStudied } from '@/lib/analytics';

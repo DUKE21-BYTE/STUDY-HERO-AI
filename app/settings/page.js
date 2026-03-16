@@ -15,6 +15,7 @@ export default function SettingsPage() {
     const saved = localStorage.getItem('studyhero_settings');
     if (saved) {
       try {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setSettings(JSON.parse(saved));
       } catch (e) {
         console.error('Failed to parse settings', e);

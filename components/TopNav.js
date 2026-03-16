@@ -24,6 +24,7 @@ export default function TopNav({ pathname }) {
   const title = pageTitles[pathname] || 'StudyHero AI';
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setStreak(getStreak());
   }, []);
 

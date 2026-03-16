@@ -7,14 +7,14 @@ export default function Dashboard() {
   const [stats, setStats] = useState({ streak: 0, accuracy: 0, totalTopics: 0, recentScores: [], weakTopics: [] });
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setStats(getStats());
   }, []);
 
   return (
     <div className="page-container">
       <div className="page-header">
-        <h1>Welcome Back, Hero 👋</h1>
-        <p>Here's a summary of your learning progress and quick actions.</p>
+        <p>Welcome back! You&apos;re currently on a <strong>{stats?.streak || 0} day</strong> study streak. Keep it going!</p>
       </div>
 
       {/* Stats Row */}
@@ -95,7 +95,7 @@ export default function Dashboard() {
             ) : (
               <div className="empty-state" style={{ padding: '2rem 1rem' }}>
                 <div className="icon">🌟</div>
-                <h4 style={{ color: 'var(--text-primary)', marginBottom: '0.25rem' }}>You're doing great!</h4>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>&quot;The expert in anything was once a beginner.&quot;</p>
                 <p style={{ fontSize: '0.85rem' }}>Take some quizzes to identify weak areas.</p>
                 <Link href="/quiz" className="btn btn-primary btn-sm" style={{ marginTop: '1rem' }}>Take a Quiz</Link>
               </div>

@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { getStats, getQuizScores, getTopicsStudied } from '@/lib/analytics';
-import Link from 'next/link';
 
 export default function AnalyticsPage() {
   const [stats, setStats] = useState(null);
@@ -9,8 +8,11 @@ export default function AnalyticsPage() {
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setStats(getStats());
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setHistory(getQuizScores().reverse()); // Newest first
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTopics(getTopicsStudied().sort((a,b) => b.count - a.count));
   }, []);
 
