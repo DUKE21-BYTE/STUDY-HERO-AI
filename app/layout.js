@@ -2,6 +2,7 @@ import './globals.css';
 import { Toaster } from 'react-hot-toast';
 import Sidebar from '@/components/Sidebar';
 import TopNav from '@/components/TopNav';
+import Footer from '@/components/Footer';
 import { headers } from 'next/headers';
 
 export const metadata = {
@@ -18,12 +19,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <div className="app-layout">
+        <div className="app-layout" style={{ display: 'flex', minHeight: '100vh' }}>
           <Sidebar />
-          <TopNav pathname={pathname} />
-          <main className="main-content">
-            {children}
-          </main>
+          <div className="main-wrapper" style={{ flex: 1, display: 'flex', flexDirection: 'column', marginLeft: 'var(--sidebar-width)', transition: 'margin-left 0.3s ease' }}>
+            <TopNav pathname={pathname} />
+            <main className="main-content-inner" style={{ flex: 1, paddingTop: 'var(--topnav-height)' }}>
+              {children}
+            </main>
+            <Footer />
+          </div>
         </div>
         <Toaster 
           position="bottom-right"
